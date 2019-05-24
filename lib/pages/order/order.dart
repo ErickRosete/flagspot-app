@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import '../../widgets/ui_elements/rating.dart';
 import '../../widgets/ui_elements/custom-button.dart';
 
-class RestaurantDetailPage extends StatelessWidget {
+class OrderPage extends StatelessWidget {
   final List<String> options = [
     "Menú",
     "Información",
     "Comentarios",
     "Ubicación"
   ];
-
   @override
   Widget build(BuildContext context) {
     TextStyle descStyle = TextStyle(fontSize: 20.0);
@@ -17,14 +16,16 @@ class RestaurantDetailPage extends StatelessWidget {
     TextStyle greyStyle = TextStyle(fontSize: 20.0, color: Colors.grey[700]);
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Restaurantes"),
-        ),
-        body: SingleChildScrollView(
+      appBar: AppBar(
+        title: Text("Pizza"),
+      ),
+      body: Container(
+        margin: EdgeInsets.only(top: 20.0),
+        child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Image.asset(
-                "assets/food.jpg",
+                "assets/pizza.jpg",
                 fit: BoxFit.cover,
               ),
               Container(
@@ -111,6 +112,8 @@ class RestaurantDetailPage extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
