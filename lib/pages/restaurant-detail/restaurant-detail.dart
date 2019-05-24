@@ -10,6 +10,14 @@ class RestaurantDetailPage extends StatelessWidget {
     "Ubicación"
   ];
 
+  goToOrder(BuildContext context) {
+    Navigator.pushNamed(context, '/order');
+  }
+
+  optionFunction() {
+    print("clicked");
+  }
+
   @override
   Widget build(BuildContext context) {
     TextStyle descStyle = TextStyle(fontSize: 20.0);
@@ -28,44 +36,48 @@ class RestaurantDetailPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.5),
-                child: Row(
-                  children: <Widget>[
-                    CircleAvatar(
-                      radius: 40.0,
-                      backgroundImage: AssetImage("assets/pizzasGaboIcon.jpg"),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          "Pizzas Gabo",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Rating(4),
-                  ],
-                ),
-              ),
-              Container(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: ButtonBar(
-                    children: options
-                        .map((option) =>
-                            CustomButton(option, option == "Información"))
-                        .toList(),
-                  ),
-                ),
-              ),
-              Container(
                 margin: EdgeInsets.all(20.0),
                 child: Column(
                   children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        CircleAvatar(
+                          radius: 40.0,
+                          backgroundImage:
+                              AssetImage("assets/pizzasGaboIcon.jpg"),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Text(
+                              "Pizzas Gabo",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Rating(4),
+                      ],
+                    ),
+                    Container(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: ButtonBar(
+                          children: options
+                              .map(
+                                (option) => CustomButton(
+                                    option,
+                                    option == "Información",
+                                    option == "Menú"
+                                        ? () => goToOrder(context)
+                                        : optionFunction),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ),
                     Text(
                       '"Pizzas Gabo" nace de la necesidad de ofrecer un concepto en pizzeria con ingredientes frescos y combinaciones creativas',
                       style: descStyle,

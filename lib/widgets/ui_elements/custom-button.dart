@@ -4,8 +4,9 @@ class CustomButton extends StatelessWidget {
   final double radius = 15.0;
   final bool active;
   final String text;
+  final Function buttonHandler;
 
-  const CustomButton(this.text, [this.active = false]);
+  const CustomButton(this.text, [this.active = false, this.buttonHandler]);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CustomButton extends StatelessWidget {
         child: Material(
           color: this.active ? Colors.red : Colors.transparent,
           child: InkWell(
-            onTap: () => {print("clicked")},
+            onTap: this.buttonHandler,
             child: Container(
               width: 150.0,
               padding: EdgeInsets.symmetric(

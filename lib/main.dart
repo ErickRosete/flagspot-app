@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import "./pages/restaurant/restaurant.dart";
 import "./pages/restaurant-detail/restaurant-detail.dart";
+import "./pages/order/order.dart";
 
 void main() => runApp(MyApp());
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => RestaurantPage(),
-        "/detail": (context) => RestaurantDetailPage(),
+        '/detail': (context) => RestaurantDetailPage(),
+        '/order': (context) => OrderPage()
       },
     );
   }
