@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class RestaurantCard extends StatelessWidget {
+class CategoryCard extends StatelessWidget {
   final double radius = 20.0;
   final String title;
-  RestaurantCard(this.title);
+  CategoryCard(this.title);
 
   @override
   Widget build(BuildContext context) {

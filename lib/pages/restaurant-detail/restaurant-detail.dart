@@ -44,7 +44,7 @@ class RestaurantDetailPage extends StatelessWidget {
                         CircleAvatar(
                           radius: 40.0,
                           backgroundImage:
-                              AssetImage("assets/pizzasGaboIcon.jpg"),
+                              AssetImage("assets/restaurante-3.jpg"),
                         ),
                         Expanded(
                           child: Padding(

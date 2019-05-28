@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
-import './restaurant-card.dart';
+import './category-card.dart';
 
-class RestaurantList extends StatelessWidget {
+class CategoryList extends StatelessWidget {
   final String title;
-  RestaurantList(this.title);
+  CategoryList(this.title);
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle titleStyle = TextStyle(
+        fontWeight: FontWeight.bold, fontSize: 26.0, color: Colors.grey[700]);
+
     var _imageArray = new List<Widget>();
     for (int i = 0; i < 5; i++) {
-      _imageArray.add(RestaurantCard("Ejemplo ${i + 1}"));
+      _imageArray.add(CategoryCard("Ejemplo ${i + 1}"));
     }
 
     return Container(
@@ -20,15 +23,7 @@ class RestaurantList extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(left: 15.0, bottom: 5.0),
-              child: Text(
-                title,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 26.0,
-                  color: Colors.grey[700],
-                ),
-              ),
+              child: Text(title, textAlign: TextAlign.left, style: titleStyle),
             ),
             SingleChildScrollView(
               child: Row(children: _imageArray),
