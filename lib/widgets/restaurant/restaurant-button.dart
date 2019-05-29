@@ -16,7 +16,7 @@ class RestaurantButton extends StatelessWidget {
           heroTag: id,
           child: Icon(Icons.camera_alt),
           backgroundColor: Colors.white,
-          onPressed: () => {},
+          onPressed: () => Navigator.pushNamed(context, '/detail'),
         ),
       ),
     );

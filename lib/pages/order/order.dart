@@ -1,18 +1,28 @@
+import 'package:flagspot/widgets/order/checkbox-extras.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/ui_elements/rating.dart';
+import '../../models/order.dart';
 
-class OrderPage extends StatelessWidget {
-  final List<String> options = [
-    "Menú",
-    "Información",
-    "Comentarios",
-    "Ubicación"
-  ];
+class OrderPage extends StatefulWidget {
+  @override
+  _OrderPageState createState() => _OrderPageState();
+}
+
+class _OrderPageState extends State<OrderPage> {
+  List<Extra> checkboxOptions = extrasArray
+      .map((extraMap) => Extra(
+          name: extraMap['name'],
+          selected: extraMap['selected'],
+          price: extraMap['price']))
+      .toList();
+
+  changeCheckbox() {}
+
   @override
   Widget build(BuildContext context) {
-    TextStyle descStyle = TextStyle(fontSize: 20.0);
-    TextStyle redStyle = TextStyle(fontSize: 20.0, color: Colors.red);
-    TextStyle greyStyle = TextStyle(fontSize: 20.0, color: Colors.grey[700]);
+    var descStyle = TextStyle(fontSize: 20.0);
+    // var redStyle = TextStyle(fontSize: 20.0, color: Colors.red);
+    // var greyStyle = TextStyle(fontSize: 20.0, color: Colors.grey[700]);
 
     return Scaffold(
       appBar: AppBar(
@@ -21,13 +31,43 @@ class OrderPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Image.asset(
-              "assets/pizza.jpg",
-              fit: BoxFit.cover,
+            Container(
+              height: 225.0,
+              width: double.infinity,
+              child: Image.asset(
+                "assets/pizzas-gabo-1.jpg",
+                fit: BoxFit.cover,
+              ),
             ),
             Container(
-              margin: EdgeInsets.all(20.0),
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              transform: Matrix4.translationValues(0.0, -25.0, 0.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  CircleAvatar(
+                    radius: 40.0,
+                    backgroundImage: AssetImage("assets/restaurante-3.jpg"),
+                  ),
+                  Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.0, vertical: 7.5),
+                    child: Text(
+                      "Pizza Gabo",
+                      style: TextStyle(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[800]),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  top: 0.0, bottom: 20.0, left: 20.0, right: 20.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Row(
                     children: <Widget>[
@@ -36,13 +76,10 @@ class OrderPage extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              "Pepperoni",
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            child: Text("Pepperoni",
+                                style: TextStyle(
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold)),
                           ),
                           Container(
                             color: Colors.grey[350],
@@ -79,41 +116,20 @@ class OrderPage extends StatelessWidget {
                     style: descStyle,
                   ),
                   SizedBox(height: 30.0),
-                  Row(
-                    children: <Widget>[
-                      Text("Contacto", style: redStyle),
-                      SizedBox(width: 7.5),
-                      Text("686 316 3947", style: greyStyle)
-                    ],
+                  Text(
+                    "Ingredientes Extras",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
                   ),
-                  SizedBox(height: 15.0),
-                  Row(
-                    children: <Widget>[
-                      Text("Rango de Precio", style: redStyle),
-                      SizedBox(width: 7.5),
-                      Text("\$\$", style: greyStyle)
-                    ],
-                  ),
-                  SizedBox(height: 15.0),
-                  SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Horario", style: redStyle),
-                          SizedBox(width: 7.5),
-                          Column(
-                            children: <Widget>[
-                              Text("Lunes a Jueves______14:30 a 21:00",
-                                  style: greyStyle),
-                              Text("Viernes y Sábados___14:30 a 22:00",
-                                  style: greyStyle),
-                              Text("Domingo_____________14:30 a 21:00",
-                                  style: greyStyle),
-                            ],
-                          ),
-                        ],
-                      ))
+                  SizedBox(height: 10.0),
+                  Column(
+                      children: checkboxOptions
+                          .map((option) => CheckboxExtras(option, (bool val) {
+                                setState(() {
+                                  option.selected = val;
+                                });
+                              }))
+                          .toList()),
                 ],
               ),
             ),
