@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 
-import './item-card.dart';
+import './product-card.dart';
+import '../../models/product.dart';
 
-class ItemList extends StatelessWidget {
-  final String title;
-  ItemList(this.title);
+class ProductList extends StatelessWidget {
+  final ProductGroup productGroup;
+  ProductList(this.productGroup);
 
   @override
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
         fontWeight: FontWeight.bold, fontSize: 26.0, color: Colors.grey[700]);
-
-    var _imageArray = new List<Widget>();
-    for (int i = 0; i < 5; i++) {
-      _imageArray.add(ItemCard("Ejemplo ${i + 1}"));
-    }
 
     return Container(
         margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -23,12 +19,17 @@ class ItemList extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(left: 15.0, bottom: 5.0),
-              child: Text(title, textAlign: TextAlign.left, style: titleStyle),
+              child: Text(productGroup.name,
+                  textAlign: TextAlign.left, style: titleStyle),
             ),
             SingleChildScrollView(
-              child: Row(children: _imageArray),
               scrollDirection: Axis.horizontal,
-            )
+              child: Row(
+                children: productGroup.products
+                    .map((product) => ProductCard(product))
+                    .toList(),
+              ),
+            ),
           ],
         ));
   }

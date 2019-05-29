@@ -1,14 +1,15 @@
+import 'package:flagspot/models/category.dart';
 import 'package:flutter/material.dart';
 
-class CategoryCard extends StatelessWidget {
+class SubcategoryCard extends StatelessWidget {
   final double radius = 20.0;
-  final String title;
-  CategoryCard(this.title);
+  final Subcategory subcategory;
+  SubcategoryCard(this.subcategory);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, '/detail'),
+      onTap: () => Navigator.pushNamed(context, '/subcategory'),
       child: Container(
         height: 230.0,
         width: 320.0,
@@ -18,7 +19,7 @@ class CategoryCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(radius),
               child: Image.asset(
-                'assets/food.jpg',
+                subcategory.imgUrl,
                 fit: BoxFit.fitHeight,
                 height: double.infinity,
               ),
@@ -27,7 +28,7 @@ class CategoryCard extends StatelessWidget {
               padding: EdgeInsets.only(left: 24.0, bottom: 12.0, right: 24.0),
               alignment: Alignment.bottomLeft,
               child: Text(
-                title,
+                subcategory.name,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24.0,

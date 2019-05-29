@@ -23,7 +23,7 @@ class Subcategory {
 }
 
 //Dummy text
-var categories = {
+var categoriesMap = {
   'Comida Rápida': [
     {'id': 'pizzas', 'name': 'Pizzas', 'imgUrl': 'assets/comida-rapida-1.jpg'},
     {'id': 'h', 'name': 'Hamburguesas', 'imgUrl': 'assets/comida-rapida-2.jpg'},
@@ -33,7 +33,7 @@ var categories = {
     {'id': 'ramen', 'name': 'Ramen', 'imgUrl': 'assets/asiatica-2.jpg'},
   ],
   'Mexicana': [
-    {'id': 'pozole', 'name': 'Pozole', 'imgUrl': 'assets/mexicana-1.jpg'},
+    {'id': 'pozole', 'name': 'Pozole', 'imgUrl': 'assets/mexicana-1.png'},
     {'id': 'chre', 'name': 'Chile Relleno', 'imgUrl': 'assets/mexicana-2.jpg'},
   ],
 };

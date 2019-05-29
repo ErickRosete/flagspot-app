@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 
-import './category-card.dart';
+import './subcategory-card.dart';
+import '../../models/category.dart';
 
-class CategoryList extends StatelessWidget {
-  final String title;
-  CategoryList(this.title);
+class SubcategoryList extends StatelessWidget {
+  final Category category;
+  SubcategoryList(this.category);
 
   @override
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
         fontWeight: FontWeight.bold, fontSize: 26.0, color: Colors.grey[700]);
-
-    var _imageArray = new List<Widget>();
-    for (int i = 0; i < 5; i++) {
-      _imageArray.add(CategoryCard("Ejemplo ${i + 1}"));
-    }
 
     return Container(
         margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -23,10 +19,14 @@ class CategoryList extends StatelessWidget {
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(left: 15.0, bottom: 5.0),
-              child: Text(title, textAlign: TextAlign.left, style: titleStyle),
+              child: Text(category.name,
+                  textAlign: TextAlign.left, style: titleStyle),
             ),
             SingleChildScrollView(
-              child: Row(children: _imageArray),
+              child: Row(
+                  children: category.subcategories
+                      .map((subcategory) => SubcategoryCard(subcategory))
+                      .toList()),
               scrollDirection: Axis.horizontal,
             )
           ],

@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
-import "../../widgets/restaurant/category-list.dart";
+import "../../widgets/restaurant/subcategory-list.dart";
 import '../../widgets/restaurant/restaurant-list.dart';
 import '../../widgets/restaurant/menu.dart';
+import '../../models/category.dart';
 
 class RestaurantPage extends StatelessWidget {
-  final List<String> categoryNames = ["Comida Rápida", "Asiatica", "Mexicana"];
-
   @override
   Widget build(BuildContext context) {
+    List<Category> categories = new List<Category>();
+    categoriesMap.forEach((name, subcategoriesMap) {
+      List<Subcategory> subcategories = subcategoriesMap
+          .map((subcategoryMap) => new Subcategory(
+              id: subcategoryMap['id'],
+              name: subcategoryMap['name'],
+              imgUrl: subcategoryMap['imgUrl']))
+          .toList();
+      categories.add(Category(name: name, subcategories: subcategories));
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Restaurantes"),
@@ -21,8 +31,8 @@ class RestaurantPage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Column(
-                      children: categoryNames
-                          .map((name) => CategoryList(name))
+                      children: categories
+                          .map((category) => SubcategoryList(category))
                           .toList()),
                   RestaurantList()
                 ],
