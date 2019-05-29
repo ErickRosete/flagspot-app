@@ -16,13 +16,21 @@ class _OrderPageState extends State<OrderPage> {
           price: extraMap['price']))
       .toList();
 
-  changeCheckbox() {}
+  var descStyle = TextStyle(fontSize: 20.0);
+  var subtitleStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0);
+  var redStyle = TextStyle(fontSize: 20.0, color: Colors.red);
+  var greyStyle = TextStyle(
+      fontSize: 20.0, color: Colors.grey[700], fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
-    var descStyle = TextStyle(fontSize: 20.0);
-    // var redStyle = TextStyle(fontSize: 20.0, color: Colors.red);
-    // var greyStyle = TextStyle(fontSize: 20.0, color: Colors.grey[700]);
+    //calculate price
+    double totalPrice = 120;
+    checkboxOptions.forEach((option) {
+      if (option.selected) {
+        totalPrice += option.price;
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -116,11 +124,7 @@ class _OrderPageState extends State<OrderPage> {
                     style: descStyle,
                   ),
                   SizedBox(height: 30.0),
-                  Text(
-                    "Ingredientes Extras",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
-                  ),
+                  Text("Ingredientes Extras", style: subtitleStyle),
                   SizedBox(height: 10.0),
                   Column(
                       children: checkboxOptions
@@ -130,6 +134,53 @@ class _OrderPageState extends State<OrderPage> {
                                 });
                               }))
                           .toList()),
+                  SizedBox(height: 20.0),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "Total",
+                        style: greyStyle,
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.symmetric(horizontal: 10.0),
+                          height: 20.0,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom:
+                                  BorderSide(color: Colors.grey, width: 1.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "\$$totalPrice",
+                        style: redStyle,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 40.0),
+                  Center(
+                    child: ButtonTheme(
+                      minWidth: 275.0,
+                      height: 50.0,
+                      child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0)),
+                        color: Colors.red,
+                        onPressed: () {},
+                        child: Text(
+                          "Ordenar",
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    "Nota: Tu orden una vez confirmada no prodra ser cancelada. Favor de revisar con atención su pedido.",
+                    textAlign: TextAlign.justify,
+                  )
                 ],
               ),
             ),

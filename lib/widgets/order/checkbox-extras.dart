@@ -4,6 +4,7 @@ import '../../models/order.dart';
 
 class CheckboxExtras extends StatelessWidget {
   final double radius = 20.0;
+  final TextStyle style = TextStyle(fontSize: 18.0, color: Colors.grey[700]);
   final Extra extra;
   final Function onSelect;
   CheckboxExtras(this.extra, this.onSelect);
@@ -16,7 +17,7 @@ class CheckboxExtras extends StatelessWidget {
           value: extra.selected,
           onChanged: this.onSelect,
         ),
-        Text(extra.name),
+        Text(extra.name, style: style),
         Expanded(
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 10.0),
@@ -28,7 +29,7 @@ class CheckboxExtras extends StatelessWidget {
             ),
           ),
         ),
-        Text("\$${extra.price}"),
+        Text("\$${extra.price}", style: style),
       ],
     );
   }
