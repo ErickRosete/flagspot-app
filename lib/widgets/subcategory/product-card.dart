@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/product.dart';
+import '../ui_elements/time-duration.dart';
 
 class ProductCard extends StatelessWidget {
   final double radius = 20.0;
@@ -12,45 +13,50 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, '/order'),
       child: Container(
-        height: 230.0,
-        width: 320.0,
-        margin: EdgeInsets.all(10.0),
-        child: Stack(
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(radius),
-              child: Image.asset(
-                product.imgUrl,
-                fit: BoxFit.fitHeight,
-                height: double.infinity,
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 24.0, bottom: 12.0, right: 24.0),
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                product.name,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.0,
-                  color: Colors.white,
+          width: 320.0,
+          margin: EdgeInsets.all(10.0),
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(radius),
+                child: Image.asset(
+                  product.imgUrl,
+                  fit: BoxFit.cover,
+                  height: 200.0,
                 ),
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(radius),
-                gradient: LinearGradient(
-                  begin: Alignment.center,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.transparent,
-                    Colors.black87,
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.5),
+                decoration: BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(color: Colors.grey, width: 1))),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      constraints: BoxConstraints(maxWidth: 175.0),
+                      margin: EdgeInsets.only(right: 7.5),
+                      child: Text(
+                        product.name,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    TimeDuration(product.time),
+                    Expanded(child: Container()),
+                    Text('${product.stars}', style: TextStyle(fontSize: 18.0)),
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                      size: 25.0,
+                    )
                   ],
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
+              )
+            ],
+          )),
     );
   }
 }
