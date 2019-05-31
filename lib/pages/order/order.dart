@@ -16,11 +16,11 @@ class _OrderPageState extends State<OrderPage> {
           price: extraMap['price']))
       .toList();
 
-  var descStyle = TextStyle(fontSize: 20.0);
-  var subtitleStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0);
-  var redStyle = TextStyle(fontSize: 20.0, color: Colors.red);
+  var descStyle = TextStyle(fontSize: 18.0);
+  var subtitleStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0);
+  var redStyle = TextStyle(fontSize: 18.0, color: Colors.red);
   var greyStyle = TextStyle(
-      fontSize: 20.0, color: Colors.grey[700], fontWeight: FontWeight.bold);
+      fontSize: 18.0, color: Colors.grey[700], fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _OrderPageState extends State<OrderPage> {
         child: Column(
           children: <Widget>[
             Container(
-              height: 225.0,
+              height: 200.0,
               width: double.infinity,
               child: Image.asset(
                 "assets/pizzas-gabo-1.jpg",
@@ -86,7 +86,7 @@ class _OrderPageState extends State<OrderPage> {
                             margin: EdgeInsets.only(bottom: 8.0),
                             child: Text("Pepperoni",
                                 style: TextStyle(
-                                    fontSize: 24.0,
+                                    fontSize: 22.0,
                                     fontWeight: FontWeight.bold)),
                           ),
                           Container(

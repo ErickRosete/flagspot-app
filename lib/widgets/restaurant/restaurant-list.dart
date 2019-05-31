@@ -5,7 +5,7 @@ class RestaurantList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
-        fontWeight: FontWeight.bold, fontSize: 26.0, color: Colors.grey[700]);
+        fontWeight: FontWeight.bold, fontSize: 22.0, color: Colors.grey[700]);
 
     List<Widget> restaurantOptions = new List<Widget>();
     for (var i = 0; i <= 4; i++) {

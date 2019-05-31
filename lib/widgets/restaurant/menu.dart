@@ -23,22 +23,25 @@ class _MenuState extends State<Menu> {
       child: Container(
         color: Colors.transparent,
         padding: EdgeInsets.all(5.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              children: sections
-                  .map((sec) => MenuButton(sec, () {
-                        setState(() {
-                          sections.singleWhere((sec) => sec.active).active =
-                              false;
-                          sec.active = true;
-                        });
-                      }))
-                  .toList(),
-            ),
-            FilterButton()
-          ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                children: sections
+                    .map((sec) => MenuButton(sec, () {
+                          setState(() {
+                            sections.singleWhere((sec) => sec.active).active =
+                                false;
+                            sec.active = true;
+                          });
+                        }))
+                    .toList(),
+              ),
+              FilterButton()
+            ],
+          ),
         ),
       ),
     );

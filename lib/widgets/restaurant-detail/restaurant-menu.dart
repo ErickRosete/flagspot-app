@@ -50,7 +50,7 @@ class RestaurantMenuItem extends StatelessWidget {
                             color: Colors.amber,
                             size: 25.0,
                           ),
-                          Text('4.5 (200+)', style: TextStyle(fontSize: 18.0)),
+                          Text('4.5 (200+)', style: TextStyle(fontSize: 16.0)),
                         ],
                       ),
                       Container(
@@ -61,7 +61,7 @@ class RestaurantMenuItem extends StatelessWidget {
                             border: Border.all(color: Colors.red, width: 1)),
                         child: Text("120",
                             style:
-                                TextStyle(fontSize: 18.0, color: Colors.red)),
+                                TextStyle(fontSize: 16.0, color: Colors.red)),
                       )
                     ],
                   ),

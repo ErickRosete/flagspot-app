@@ -13,7 +13,7 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, '/order'),
       child: Container(
-          width: 320.0,
+          width: 250.0,
           margin: EdgeInsets.all(10.0),
           child: Column(
             children: <Widget>[
@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
                 child: Image.asset(
                   product.imgUrl,
                   fit: BoxFit.cover,
-                  height: 200.0,
+                  height: 160.0,
                 ),
               ),
               Container(
@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      constraints: BoxConstraints(maxWidth: 175.0),
+                      constraints: BoxConstraints(maxWidth: 120.0),
                       margin: EdgeInsets.only(right: 7.5),
                       child: Text(
                         product.name,

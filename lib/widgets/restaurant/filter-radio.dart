@@ -13,7 +13,7 @@ class FilterRadio extends StatelessWidget {
     return RadioListTile(
       title: Text(
         this.sortOptionRadio.title,
-        style: TextStyle(fontSize: 18.0),
+        style: TextStyle(fontSize: 17.0),
       ),
       value: this.sortOptionRadio.sortOption,
       groupValue: this.options,

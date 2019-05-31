@@ -52,7 +52,7 @@ class _RestaurantDetailState extends State<RestaurantDetailPage> {
                   Row(
                     children: <Widget>[
                       CircleAvatar(
-                        radius: 40.0,
+                        radius: 35.0,
                         backgroundImage: AssetImage("assets/restaurante-3.jpg"),
                       ),
                       Expanded(
@@ -62,7 +62,7 @@ class _RestaurantDetailState extends State<RestaurantDetailPage> {
                             "Pizzas Gabo",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 24.0,
+                              fontSize: 22.0,
                             ),
                           ),
                         ),

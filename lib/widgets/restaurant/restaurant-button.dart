@@ -8,9 +8,9 @@ class RestaurantButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 50.0, bottom: 10.0),
-      height: 75.0,
-      width: 75.0,
+      margin: EdgeInsets.only(right: 30.0, bottom: 10.0),
+      height: 70.0,
+      width: 70.0,
       child: FittedBox(
         child: FloatingActionButton(
           heroTag: id,

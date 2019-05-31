@@ -10,7 +10,7 @@ class SubcategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
-        fontWeight: FontWeight.bold, fontSize: 26.0, color: Colors.grey[700]);
+        fontWeight: FontWeight.bold, fontSize: 22.0, color: Colors.grey[700]);
 
     return Container(
         margin: EdgeInsets.only(top: 10.0, bottom: 10.0),

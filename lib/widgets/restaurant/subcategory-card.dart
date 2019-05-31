@@ -11,8 +11,8 @@ class SubcategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, '/subcategory'),
       child: Container(
-        height: 230.0,
-        width: 320.0,
+        height: 175.0,
+        width: 250.0,
         margin: EdgeInsets.all(10.0),
         child: Stack(
           children: <Widget>[
@@ -31,7 +31,7 @@ class SubcategoryCard extends StatelessWidget {
                 subcategory.name,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 24.0,
+                  fontSize: 22.0,
                   color: Colors.white,
                 ),
               ),

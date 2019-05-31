@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../../models/sort.dart';
 import './filter-radio.dart';
 
@@ -78,7 +79,6 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
                     }))
                 .toList(),
           ),
-          Divider(),
           Expanded(
             child: Container(),
           ),
@@ -100,7 +100,9 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
               ),
             ),
           ),
-          SizedBox(height: 10.0)
+          Expanded(
+            child: Container(),
+          ),
         ],
       ),
     );
