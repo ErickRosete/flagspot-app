@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'restaurant-button.dart';
+import '../../models/restaurant.dart';
 
 class RestaurantList extends StatelessWidget {
+  final List<Restaurant> restaurants;
+  RestaurantList(this.restaurants);
+
   @override
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
         fontWeight: FontWeight.bold, fontSize: 22.0, color: Colors.grey[700]);
-
-    List<Widget> restaurantOptions = new List<Widget>();
-    for (var i = 0; i <= 4; i++) {
-      restaurantOptions.add(RestaurantButton('restaurant-$i', "restaurant-$i"));
-    }
-
+        
     return Container(
       margin: EdgeInsets.only(top: 10.0, left: 15.0, bottom: 10.0, right: 15.0),
       child: Column(
@@ -26,7 +25,9 @@ class RestaurantList extends StatelessWidget {
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(children: restaurantOptions),
+            child: Row(
+                children:
+                    restaurants.map((res) => RestaurantButton(res)).toList()),
           ),
         ],
       ),

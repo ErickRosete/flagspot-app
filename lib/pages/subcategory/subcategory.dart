@@ -5,6 +5,7 @@ import '../../widgets/restaurant/restaurant-list.dart';
 import '../../widgets/restaurant/menu.dart';
 
 import '../../models/product.dart';
+import '../../models/restaurant.dart';
 
 class SubcategoryPage extends StatelessWidget {
   @override
@@ -23,6 +24,14 @@ class SubcategoryPage extends StatelessWidget {
       productGroups.add(ProductGroup(name: name, products: products));
     });
 
+    List<Restaurant> restaurants = restaurantArray
+        .map((restaurant) => Restaurant(
+            id: restaurant['id'],
+            category: restaurant['category'],
+            imgUrl: restaurant['imgUrl']))
+        .where((res) => res.category == "pizzas")
+        .toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Pizzas"),
@@ -38,7 +47,7 @@ class SubcategoryPage extends StatelessWidget {
                       children: productGroups
                           .map((productGroup) => ProductList(productGroup))
                           .toList()),
-                  RestaurantList()
+                  RestaurantList(restaurants)
                 ],
               ),
             ),
