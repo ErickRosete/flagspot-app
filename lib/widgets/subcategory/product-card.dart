@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      constraints: BoxConstraints(maxWidth: 120.0),
+                      constraints: BoxConstraints(maxWidth: 100.0),
                       margin: EdgeInsets.only(right: 7.5),
                       child: Text(
                         product.name,

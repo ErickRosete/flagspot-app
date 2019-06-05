@@ -3,6 +3,7 @@ import '../../widgets/ui_elements/rating.dart';
 import '../../widgets/ui_elements/custom-button.dart';
 import '../../widgets/restaurant-detail/restaurant-menu.dart';
 import '../../widgets/restaurant-detail/restaurant-info.dart';
+import '../../widgets/restaurant-detail/restaurant-discount.dart';
 
 class RestaurantDetailPage extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _RestaurantDetailState extends State<RestaurantDetailPage> {
     "Menú",
     "Información",
     "Comentarios",
-    "Ubicación"
+    "Promociones"
   ];
 
   @override
@@ -27,6 +28,9 @@ class _RestaurantDetailState extends State<RestaurantDetailPage> {
         break;
       case 'Información':
         selectedWidget = RestaurantInfo();
+        break;
+      case 'Promociones':
+        selectedWidget = RestaurantDiscount();
         break;
       default:
         selectedWidget = RestaurantMenu();

@@ -5,8 +5,8 @@ class RestaurantInfo extends StatelessWidget {
   final TextStyle subtitleStyle =
       TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0);
   final TextStyle redStyle = TextStyle(fontSize: 18.0, color: Colors.red);
-  final TextStyle greyStyle = TextStyle(
-      fontSize: 18.0, color: Colors.grey[700]);
+  final TextStyle greyStyle =
+      TextStyle(fontSize: 18.0, color: Colors.grey[700]);
 
   @override
   Widget build(BuildContext context) {
