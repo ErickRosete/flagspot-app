@@ -4,6 +4,7 @@ import '../../widgets/ui_elements/custom-button.dart';
 import '../../widgets/restaurant-detail/restaurant-menu.dart';
 import '../../widgets/restaurant-detail/restaurant-info.dart';
 import '../../widgets/restaurant-detail/restaurant-discount.dart';
+import '../../widgets/restaurant-detail/restaurant-comments.dart';
 
 class RestaurantDetailPage extends StatefulWidget {
   @override
@@ -31,6 +32,9 @@ class _RestaurantDetailState extends State<RestaurantDetailPage> {
         break;
       case 'Promociones':
         selectedWidget = RestaurantDiscount();
+        break;
+      case 'Comentarios':
+        selectedWidget = RestaurantComments();
         break;
       default:
         selectedWidget = RestaurantMenu();
