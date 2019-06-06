@@ -51,21 +51,20 @@ class CommentCard extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.only(bottom: 5.0),
-                        // child: SingleChildScrollView(
-                        //   scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: <Widget>[
-                              Text(
+                        child: Row(
+                          children: <Widget>[
+                            Flexible(
+                              child: Text(
                                 comment.name,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: fontSize + 1.0),
                               ),
-                              Expanded(child: Container()),
-                              Rating(comment.stars.round())
-                            ],
-                          ),
-                        // ),
+                            ),
+                            Expanded(child: Container()),
+                            Rating(comment.stars.round())
+                          ],
+                        ),
                       ),
                       Text(
                         comment.content,
