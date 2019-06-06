@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './restaurant-map.dart';
 
 class RestaurantInfo extends StatelessWidget {
   final TextStyle descStyle = TextStyle(fontSize: 18.0);
@@ -52,7 +53,15 @@ class RestaurantInfo extends StatelessWidget {
                     ],
                   ),
                 ],
-              ))
+              )),
+          SizedBox(height: 20.0),
+          Center(
+            child: SizedBox(
+              width: 350.0,
+              height: 200.0,
+              child: RestaurantMap(),
+            ),
+          )
         ],
       ),
     );
