@@ -45,30 +45,36 @@ class CommentCard extends StatelessWidget {
                 backgroundColor: Colors.transparent,
               ),
               Expanded(
-                  child: Container(
-                margin: EdgeInsets.only(left: 20.0),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(bottom: 5.0),
-                      child: Row(children: <Widget>[
-                        Text(
-                          comment.name,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: fontSize + 1.0),
-                        ),
-                        Expanded(child: Container()),
-                        Rating(comment.stars.round())
-                      ]),
-                    ),
-                    Text(
-                      comment.content,
-                      style: TextStyle(fontSize: fontSize),
-                    )
-                  ],
+                child: Container(
+                  margin: EdgeInsets.only(left: 20.0),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(bottom: 5.0),
+                        // child: SingleChildScrollView(
+                        //   scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                comment.name,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: fontSize + 1.0),
+                              ),
+                              Expanded(child: Container()),
+                              Rating(comment.stars.round())
+                            ],
+                          ),
+                        // ),
+                      ),
+                      Text(
+                        comment.content,
+                        style: TextStyle(fontSize: fontSize),
+                      )
+                    ],
+                  ),
                 ),
-              ))
+              ),
             ],
           ),
         ),
